@@ -1,5 +1,6 @@
 import './App.css';
 import {MenuProduct} from "./components/MenuProduct";
+import {PRODUCTS_DATA} from "./data/data";
 
 
 function App() {
@@ -7,10 +8,12 @@ function App() {
         <div id="root">
             <div>
                 <h1>Menu</h1>
-                <MenuProduct productName="cola" price={"1 €"}/>
-                <MenuProduct productName="water" price={"1 €"}/>
-                <MenuProduct productName="bier" price={"2 €"}/>
-                <MenuProduct productName="wijn" price={"3 €"}/>
+                <MenuProduct product={PRODUCTS_DATA[0]}/>
+                <MenuProduct product={PRODUCTS_DATA[1]}/>
+                <MenuProduct product={PRODUCTS_DATA[2]}/>
+                <MenuProduct product={PRODUCTS_DATA[3]}/>
+                <MenuProduct product={PRODUCTS_DATA[4]}/>
+
 
             </div>
         </div>
