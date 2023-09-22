@@ -1,7 +1,7 @@
 export function MenuProduct(props) {
     const {product} = props;
     if (!product?.name) return;
-    return <div>
+    return (<div>
         {product.name} {product.price} &euro;
-    </div>
+    </div>);
 }
