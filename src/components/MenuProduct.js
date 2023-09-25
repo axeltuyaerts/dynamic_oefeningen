@@ -26,7 +26,7 @@ export function MenuProduct(props) {
         fontSize: "smaller",
         display: "flex",
         justifyContent: "space-between",
-        width: "500px",
+        width: "200px",
         flex: "1"
     }}>
         <div>{product.name} <ProductSize product={product}/> <br/> <ProductNote product={product}/> </div>
