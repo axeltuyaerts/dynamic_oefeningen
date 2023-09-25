@@ -23,6 +23,8 @@ function App() {
                     <PicturesPage/>
                 </TabPanel>
             </Tabs>
+
+
         </div>
     );
 }
