@@ -1,15 +1,15 @@
 import 'normalize.css';
 import './App.css';
 import {PRODUCTS_DATA} from "./data/data";
-import {MenuCard} from "./components/MenuCard";
+import {MenuCardPage} from "./pages/MenuCardPage";
+import {PicturesPage} from "./pages/PicturesPage";
 
 
 function App() {
     return (
         <div id="root">
-            <div>
-                    <MenuCard products={PRODUCTS_DATA}/>
-            </div>
+            <MenuCardPage products={PRODUCTS_DATA}/>
+            <PicturesPage/>
         </div>
     );
 }
