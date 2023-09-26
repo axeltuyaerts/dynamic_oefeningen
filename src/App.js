@@ -1,4 +1,5 @@
 import 'normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Tabs, TabList, TabPanel} from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import './App.css';
