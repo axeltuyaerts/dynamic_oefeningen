@@ -1,3 +1,7 @@
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 const PICTURES_DATA = [
     {
         id: 1,
@@ -23,11 +27,13 @@ const PICTURES_DATA = [
 
 export function PicturesPage() {
     return (
-        <div>
-            <h1>Pictures</h1>
-            {PICTURES_DATA.map(picture => <Picture key={picture.name} picture={picture}/>)}
-
-        </div>
+        <Container>
+            <Row>
+                <Col md={{ offset: 4}}><h1>Pictures</h1>
+                    {PICTURES_DATA.map(picture => <Picture key={picture.name} picture={picture}/>)}
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

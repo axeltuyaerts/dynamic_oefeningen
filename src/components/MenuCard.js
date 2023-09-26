@@ -9,7 +9,7 @@ export function MenuCard(props) {
     return (
         <Container fluid>
             <Row>
-                <Col >
+                <Col>
                     <h1>Menu</h1>
                     {products.map(p => <MenuProduct key={p.name} product={p}/>)}
                 </Col>
