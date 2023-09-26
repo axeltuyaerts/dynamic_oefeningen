@@ -24,12 +24,11 @@ const PICTURES_DATA = [
 
 ];
 
-
 export function PicturesPage() {
     return (
         <Container>
             <Row>
-                <Col md={{ offset: 4}}><h1>Pictures</h1>
+                <Col className="my-5"><h1>Pictures</h1>
                     {PICTURES_DATA.map(picture => <Picture key={picture.name} picture={picture}/>)}
                 </Col>
             </Row>
