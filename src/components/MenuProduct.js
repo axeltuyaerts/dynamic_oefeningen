@@ -29,7 +29,16 @@ export function MenuProduct(props) {
         width: "200px",
         flex: "1"
     }}>
-        <div>{product.name} <ProductSize product={product}/> <br/> <ProductNote product={product}/> </div>
+        <div>{product.name} <ProductSize product={product}/> <br/> <ProductNote product={product}/></div>
         <div>{product.price} &euro; </div>
     </div>;
+}
+
+MenuProduct.propTypes = {
+    product: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        size: PropTypes.number,
+        note: PropTypes.string,
+    }).isRequired
 }
