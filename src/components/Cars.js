@@ -33,7 +33,7 @@ Cars.propTypes = {
             brand: PropTypes.string,
             type: PropTypes.string,
             color: PropTypes.string
-        })
+        }).isRequired
     ),
-    title: PropTypes.string
+    title: PropTypes.string.isRequired
 };
