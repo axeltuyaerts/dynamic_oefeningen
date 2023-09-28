@@ -33,3 +33,34 @@ export const CAR_DATA = [
     {id: 8, name: "auto4", brand: "Citroën", type: "C4", color: "rood"},
     {id: 9, name: "auto5", brand: "Fiat", type: "Panda", color: "rood"}
 ];
+
+export const COLOR_DATA = [
+    {
+        color: "blauw",
+        css: "bg-primary"
+    },
+    {
+        color: "geel",
+        css: "bg-warning"
+    },
+    {
+        color: "zwart",
+        css: "bg-dark"
+    },
+    {
+        color: "wit",
+        css: "bg-white"
+    },
+    {
+        color: "rood",
+        css: "bg-danger"
+    },
+    {
+        color: "grijs",
+        css: "bg-secondary"
+    },
+    {
+        color: "groen",
+        css: "bg-succes"
+    }
+];
