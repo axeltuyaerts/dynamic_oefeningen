@@ -11,7 +11,7 @@ export function Cars(props) {
                 <Row>
                     {cars.map((car) =>
                         <Col key={car.id}
-                             xs={12}
+                             xs={12} sm={6} md={3} xxl={2}
                              className={"text-center"}>
                             <Card className={"m-2 p-2 shadow-sm text-center"}>
                                 <div>
