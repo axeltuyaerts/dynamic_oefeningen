@@ -13,10 +13,10 @@ export function Cars(props) {
                              xs={12}
                              className={"text-center"}>
                             <Card className={"m-2 p-2 shadow-sm text-center"}>
-                                <h3>{car.name}</h3>
-                                <div>Merk: {car.brand}</div>
-                                <div>Type: {car.type}</div>
-                                <div>Kleur: {car.color}</div>
+                                <div>{car.name && <h3>{car.name}</h3>}</div>
+                                <div>{car.brand && <div>{"merk: " + car.brand}</div>}</div>
+                                <div>{car.type && <div>{"type: " + car.type}</div>}</div>
+                                <div>{car.color && <div>{"kleur: "+ car.color}</div>}</div>
                             </Card>
                         </Col>)
                     }
