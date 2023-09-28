@@ -5,7 +5,7 @@ export function CarPage(props) {
 
     return (
         <div>
-            <Cars cars={cars}/>
+            <Cars cars={cars} title="Auto's"/>
         </div>
     );
 }
