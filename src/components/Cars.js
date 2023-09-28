@@ -16,6 +16,7 @@ export function Cars(props) {
                                 <div>{car.name && <h3>{car.name}</h3>}</div>
                                 <div>{car.brand && <div>{"merk: " + car.brand}</div>}</div>
                                 <div>{car.type && <div>{"type: " + car.type}</div>}</div>
+                                <div>{car.note && <div>{"opm: "+ car.note}</div>}</div>
                                 <div>{car.color && <div>{"kleur: "+ car.color}</div>}</div>
                             </Card>
                         </Col>)
