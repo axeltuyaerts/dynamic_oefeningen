@@ -26,41 +26,10 @@ export const CAR_DATA = [
         note: "die ging altijd kapot"
     },
     {id: 3, name: "die van mijn pa", brand: "volvo", color: "zwart"},
-    {id: 4, name: "geitje", brand: "citroën",},
+    {id: 4, name: "geitje", brand: "citroën", color: "wit"},
     {id: 5, name: "auto1", brand: "Peugeot", type: "505", color: "grijs"},
     {id: 6, name: "auto2", brand: "Fiat", type: "Panda"},
     {id: 7, name: "auto3", brand: "Fiat", type: "Tipo", color: "groen"},
     {id: 8, name: "auto4", brand: "Citroën", type: "C4", color: "rood"},
     {id: 9, name: "auto5", brand: "Fiat", type: "Panda", color: "rood"}
-];
-
-export const COLOR_DATA = [
-    {
-        color: "blauw",
-        css: "bg-primary"
-    },
-    {
-        color: "geel",
-        css: "bg-warning"
-    },
-    {
-        color: "zwart",
-        css: "bg-dark"
-    },
-    {
-        color: "wit",
-        css: "bg-white"
-    },
-    {
-        color: "rood",
-        css: "bg-danger"
-    },
-    {
-        color: "grijs",
-        css: "bg-secondary"
-    },
-    {
-        color: "groen",
-        css: "bg-succes"
-    }
 ];

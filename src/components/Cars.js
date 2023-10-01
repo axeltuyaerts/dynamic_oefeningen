@@ -1,6 +1,29 @@
 import PropTypes from "prop-types";
 import {Card, Col, Container, Row} from "react-bootstrap";
-import {COLOR_DATA} from "../data/data";
+
+const COLOR_DATA = [
+    {
+        color: "blauw", css: "blue", cssFront: "white"
+    },
+    {
+        color: "geel", css: "yellow"
+    },
+    {
+        color: "zwart", css: "black", cssFront: "white"
+    },
+    {
+        color: "wit", css: "white"
+    },
+    {
+        color: "rood", css: "red", cssFront: "white"
+    },
+    {
+        color: "grijs", css: "gray", cssFront: "white"
+    },
+    {
+        color: "groen", css: "green", cssFront: "white"
+    }
+];
 
 export function Cars(props) {
     const {cars, title} = props;
@@ -19,7 +42,8 @@ export function Cars(props) {
                                     {car.brand && <div>merk: {car.brand}</div>}
                                     {car.type && <div>type: {car.type}</div>}
                                     {car.note && <div>opm: {car.note}</div>}
-                                    {car.color && <div className={findCarColor(car.color)}>kleur: {car.color}</div>}
+                                    {car.color && <div
+                                        style={{backgroundColor: findCarColor(car.color)}}>kleur: {car.color}</div>}
                                 </div>
                             </Card>
                         </Col>)

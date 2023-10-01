@@ -5,6 +5,7 @@ import {Card, Col, Container, Row} from "react-bootstrap";
 export function Numbers(props) {
     const {numbers, title} = props;
     return (
+
         <div className={"mt-3 rounded shadow-sm"} style={{backgroundColor: "lavender"}}>
             <h3 className={"text-center"}>{title}</h3>
             <Container>
