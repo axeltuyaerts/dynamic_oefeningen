@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Col} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 
