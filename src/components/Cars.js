@@ -16,8 +16,8 @@ export function Cars(props) {
     const {cars, title} = props;
     return (
 
-        <Section title={title}
-                 content={cars.map((car) =>
+        <Section title={title}>
+                 {cars.map((car) =>
                      <Col key={car.id} xs={12} sm={6} md={3} xxl={2} className={"text-center"}>
                          <Card className={"m-2 p-2 shadow-sm text-center"}>
                              <div>
@@ -29,7 +29,8 @@ export function Cars(props) {
                                      <div style={{backgroundColor: findCarColor(car.color)}}>kleur: {car.color}</div>}
                              </div>
                          </Card>
-                     </Col>)}/>
+                     </Col>)}
+        </Section>
     );
 }
 
