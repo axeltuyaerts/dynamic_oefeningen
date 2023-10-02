@@ -29,7 +29,7 @@ export function PicturesPage() {
         <Container>
             <Row>
                 <Col className="my-5"><h1>Pictures</h1>
-                    <p className="my-2">{PICTURES_DATA.map(picture => <Picture key={picture.name} picture={picture}/>)}</p>
+                    <p className="my-2">{PICTURES_DATA.map(picture => <Picture key={picture.id} picture={picture}/>)}</p>
                 </Col>
             </Row>
         </Container>
@@ -39,8 +39,8 @@ export function PicturesPage() {
 function Picture(props) {
     const {picture} = props;
     return <div>
-        <img src={`images/` + picture.name}
-             alt={picture.name}
+        <img src={`images/${picture.name}`}
+             alt={`${picture.name}`}
              width="100%"
              style={{margin: "4vw auto 0 auto"}}/>
         By <a href={picture.credit}> {picture.author}</a>
