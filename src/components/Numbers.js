@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
-import {Card, Col} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 import {Section} from "./Section";
+import {MyCard} from "./MyCard";
 
 function Number(props) {
     const {number} = props;
     return(
         <Col xs={4} sm={3} md={2} xxl={1} className={"text-center"}>
-            <Card className={"m-2 p-2 shadow-sm"}>{number}</Card>
+            <MyCard className={"m-2 p-2 shadow-sm"}>{number}</MyCard>
         </Col>
     )
 }
