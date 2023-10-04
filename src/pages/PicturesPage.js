@@ -29,7 +29,7 @@ export function PicturesPage() {
         <Container>
             <Row>
                 <Col className="my-5"><h1>Pictures</h1>
-                    <p className="my-2">{PICTURES_DATA.map(picture => <Picture key={picture.id} picture={picture}/>)}</p>
+                    <div className="my-2">{PICTURES_DATA.map(picture => <Picture key={picture.id} picture={picture}/>)}</div>
                 </Col>
             </Row>
         </Container>
