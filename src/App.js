@@ -8,8 +8,8 @@ import {MenuCardPage} from "./pages/MenuCardPage";
 import {PicturesPage} from "./pages/PicturesPage";
 import {NumbersPage} from "./pages/NumbersPage";
 import {CarPage} from "./pages/CarPage";
-import {EventAndStatePage} from "./pages/EventAndStatePage";
 import {PersonsPage} from "./pages/PersonsPage";
+import {EventAndStatePage} from "./pages/EventAndStatePage";
 
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
                     <Tab>pics</Tab>
                     <Tab>numbers</Tab>
                     <Tab>cars</Tab>
-                    <Tab>events&state</Tab>
                     <Tab>persons</Tab>
+                    <Tab>events&state</Tab>
                 </TabList>
 
                 <TabPanel>
