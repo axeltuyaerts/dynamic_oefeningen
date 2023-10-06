@@ -4,7 +4,7 @@ export function MyCard(props) {
     const {title, children} = props;
 
     const handleCardClick = () => {
-        const childContent = props.title || props.children; // Inhoud van de child component
+        const childContent = props.title || props.children;
         alert(`${childContent}`);
     };
 
