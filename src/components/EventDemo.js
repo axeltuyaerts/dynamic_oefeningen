@@ -1,11 +1,25 @@
-import {Button} from "react-bootstrap";
+import {Button, Row} from "react-bootstrap";
+import {Section} from "./Section";
 
 export function EventDemo() {
     return (
-        <div className={"mt-3 rounded shadow-sm text-center"} style={{backgroundColor: "lavender"}}>
-            <h2>events</h2>
-            <button style={{width: "70%", margin: "0 0 2% 0"}} onClick={(e) => alert(`hallo (${e.clientX},${e.clientY})`)} >Click here!</button>
-            <Button className={"bg-primary"} style={{width: "70%", margin: "0 0 2% 0", color:"white"}} onClick={() => alert('Bootstrap')} >Click here!</Button>
-        </div>
+        <Section title={"events"}>
+
+            <Row>
+                <button style={{width: "20%", margin: "0 0 2% 0"}}
+                        onClick={(e) => alert(`hallo (${e.clientX},${e.clientY})`)}>Click here!
+                </button>
+            </Row>
+            <Row>
+                <Button className={"bg-primary"} style={{width: "20%", margin: "0 0 2% 0", color: "white"}}
+                        onClick={() => alert('Bootstrap')}>Click here!</Button>
+            </Row>
+
+            <div style={{backgroundColor: "pink"}}>
+                <p>Dit is een div</p>
+                <p><a href={"https://www.youtube.com/"} onClick={(e) => {e.preventDefault();alert('Link is clicked')}}>dit is een link met een href</a></p>
+            </div>
+
+        </Section>
     );
 }

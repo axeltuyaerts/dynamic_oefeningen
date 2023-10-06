@@ -11,6 +11,5 @@ export function MyCard(props) {
     return <Card className="m-2 p-2 shadow-sm text-center" onClick={handleCardClick}>
         <h5>{title}</h5>
         {children}
-    </Card>
-        ;
+    </Card>;
 }
