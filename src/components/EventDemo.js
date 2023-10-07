@@ -15,9 +15,17 @@ export function EventDemo() {
                         onClick={() => alert('Bootstrap')}>Click here!</Button>
             </Row>
 
-            <div style={{backgroundColor: "pink"}}>
+            <div style={{backgroundColor: "pink"}} onClick={() => alert('div is clicked')}>
                 <p>Dit is een div</p>
-                <p><a href={"https://www.youtube.com/"} onClick={(e) => {e.preventDefault();alert('Link is clicked')}}>dit is een link met een href</a></p>
+                <p><a href={"https://www.youtube.com/"} onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('Link is clicked')
+                }}>dit is een link met een href</a> - en - <Button className={"bg-primary"} onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('Bootstrap')
+                }}>dit is een button</Button></p>
             </div>
 
         </Section>
