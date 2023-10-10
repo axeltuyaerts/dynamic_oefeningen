@@ -10,6 +10,7 @@ export function OnOffDemo(){
             <div>
                 <MyButton onClick={() => setIsOn(false)}>off</MyButton>
                 <MyButton onClick={() => setIsOn(true)}>on</MyButton>
+                <MyButton onClick={() => setIsOn(!isOn)}>toggle</MyButton>
             </div>
         </>
     )
