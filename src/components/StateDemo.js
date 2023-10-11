@@ -37,9 +37,10 @@ function DemoValueIncrement(props) {
     )
 }
 
-export function StateDemo() {
+export function StateDemo(props) {
+    const {isInitiallyOpen} = props;
     const [demoValue, setDemoValue] = useState(0);
-    return <Section title="state">
+    return <Section title="state" isInitiallyOpen={isInitiallyOpen}>
         <DemoValue demoValue={demoValue} onDemoValueChange={setDemoValue}/>
         <Counter name={"counter1"}/>
         <Counter name={"counter2"}/>

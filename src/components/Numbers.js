@@ -13,9 +13,9 @@ function Number(props) {
 }
 
 export function Numbers(props) {
-    const {numbers, title} = props;
+    const {numbers, title, isInitiallyOpen} = props;
     return (
-        <Section title={title}>
+        <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {numbers.map((n, i) => <Number key={i} number={n}/>)}
         </Section>
     );

@@ -1,10 +1,10 @@
 import {Button, Row} from "react-bootstrap";
 import {Section} from "./Section";
 
-export function EventDemo() {
+export function EventDemo(props) {
+    const {isInitiallyOpen} = props;
     return (
-        <Section title={"events"}>
-
+        <Section title={"events"} isInitiallyOpen={isInitiallyOpen}>
             <Row>
                 <button style={{width: "20%", margin: "0 0 2% 0"}}
                         onClick={(e) => alert(`hallo (${e.clientX},${e.clientY})`)}>Click here!

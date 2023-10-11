@@ -32,9 +32,9 @@ function CarColor(props) {
 }
 
 export function Cars(props) {
-    const {cars, title} = props;
+    const {cars, title,isInitiallyOpen} = props;
     return (
-        <Section title={title}>
+        <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {cars.map((car) =>
                 <Col key={car.id} xs={12} sm={6} md={3} xxl={2} className={"text-center"}>
                     <MyCard title={car.name}>

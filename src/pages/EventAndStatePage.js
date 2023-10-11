@@ -5,7 +5,7 @@ export function EventAndStatePage(){
     return(
         <div>
             <EventDemo/>
-            <StateDemo/>
+            <StateDemo isInitiallyOpen={true}/>
         </div>
     )
 }
