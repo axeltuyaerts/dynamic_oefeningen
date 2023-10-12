@@ -10,6 +10,11 @@ import {NumbersPage} from "./pages/NumbersPage";
 import {CarPage} from "./pages/CarPage";
 import {PersonsPage} from "./pages/PersonsPage";
 import {EventAndStatePage} from "./pages/EventAndStatePage";
+import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
+import {InputPage} from "./pages/InputPage";
+import {SearchPersonPage} from "./pages/SearchPersonPage";
+
+import {EventAndStatePage} from "./pages/EventAndStatePage";
 
 
 function App() {
@@ -22,6 +27,10 @@ function App() {
                     <Tab>numbers</Tab>
                     <Tab>cars</Tab>
                     <Tab>persons</Tab>
+                    <Tab>events&state</Tab>
+                    <Tab>fav numbers</Tab>
+                    <Tab>input</Tab>
+                    <Tab>search</Tab>
                     <Tab>events&state</Tab>
                 </TabList>
 
@@ -39,6 +48,18 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                     <PersonsPage persons={PERSON_DATA}/>
+                </TabPanel>
+                <TabPanel>
+                    <EventAndStatePage/>
+                </TabPanel>
+                <TabPanel>
+                    <FavoriteNumberPage numbers={NUMBER_DATA}/>
+                </TabPanel>
+                <TabPanel>
+                    <InputPage/>
+                </TabPanel>
+                <TabPanel>
+                    <SearchPersonPage persons={PERSON_DATA}/>
                 </TabPanel>
                 <TabPanel>
                     <EventAndStatePage/>

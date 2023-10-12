@@ -4,9 +4,9 @@ import {Col} from "react-bootstrap";
 import {MyCard} from "./MyCard";
 
 export function Persons(props) {
-    const {persons, title} = props;
+    const {persons, title,isInitiallyOpen} = props;
     return (
-        <Section title={title}>
+        <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {persons.map((person) =>
                 <Col key={person.id} xs={12} sm={6} md={3} xxl={2} className={"text-center"}>
                     <MyCard title={person.name}>
