@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Tabs, TabList, TabPanel} from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import './App.css';
+import "./services/firebase";
 import {PERSON_DATA,CAR_DATA,NUMBER_DATA, PRODUCTS_DATA} from "./data/data";
 import {MenuCardPage} from "./pages/MenuCardPage";
 import {PicturesPage} from "./pages/PicturesPage";
