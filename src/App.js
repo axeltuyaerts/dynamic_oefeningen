@@ -14,9 +14,6 @@ import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
 import {InputPage} from "./pages/InputPage";
 import {SearchPersonPage} from "./pages/SearchPersonPage";
 
-import {EventAndStatePage} from "./pages/EventAndStatePage";
-
-
 function App() {
     return (
         <div id="root">
@@ -31,7 +28,6 @@ function App() {
                     <Tab>fav numbers</Tab>
                     <Tab>input</Tab>
                     <Tab>search</Tab>
-                    <Tab>events&state</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -60,9 +56,6 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                     <SearchPersonPage persons={PERSON_DATA}/>
-                </TabPanel>
-                <TabPanel>
-                    <EventAndStatePage/>
                 </TabPanel>
             </Tabs>
 
