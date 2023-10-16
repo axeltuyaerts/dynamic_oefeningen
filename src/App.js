@@ -14,11 +14,12 @@ import {EventAndStatePage} from "./pages/EventAndStatePage";
 import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
 import {InputPage} from "./pages/InputPage";
 import {SearchPersonPage} from "./pages/SearchPersonPage";
+import {PersonsFromDbPage} from "./pages/PersonsFromDbPage";
 
 function App() {
     return (
         <div id="root">
-            <Tabs>
+            <Tabs defaultIndex={9}>
                 <TabList>
                     <Tab>menu</Tab>
                     <Tab>pics</Tab>
@@ -29,6 +30,7 @@ function App() {
                     <Tab>fav numbers</Tab>
                     <Tab>input</Tab>
                     <Tab>search</Tab>
+                    <Tab>Persons@Db</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -57,6 +59,9 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                     <SearchPersonPage persons={PERSON_DATA}/>
+                </TabPanel>
+                <TabPanel>
+                    <PersonsFromDbPage/>
                 </TabPanel>
             </Tabs>
         </div>

@@ -5,6 +5,9 @@ import {MyCard} from "./MyCard";
 
 export function Persons(props) {
     const {persons, title,isInitiallyOpen} = props;
+    if (!persons){
+        return "geen data";
+    }
     return (
         <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {persons.map((person) =>
@@ -26,7 +29,8 @@ Persons.propTypes = {
             name: PropTypes.string,
             age: PropTypes.number,
             city: PropTypes.string
-        }).isRequired
+        })
     ),
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    isInitiallyOpen: PropTypes.bool
 };
