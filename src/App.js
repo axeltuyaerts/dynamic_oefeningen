@@ -59,8 +59,6 @@ function App() {
                     <SearchPersonPage persons={PERSON_DATA}/>
                 </TabPanel>
             </Tabs>
-
-
         </div>
     );
 }
