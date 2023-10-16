@@ -20,7 +20,7 @@ export function PersonsFromDbPage() {
     return(
         <>
             <div>Persons from db</div>
-            <Persons persons={values} title={"personen uit de db"}/>
+            <Persons persons={values} title={"personen uit de db"} isInitiallyOpen={true}/>
         </>
     )
 }
