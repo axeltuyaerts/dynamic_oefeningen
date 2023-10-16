@@ -15,6 +15,7 @@ import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
 import {InputPage} from "./pages/InputPage";
 import {SearchPersonPage} from "./pages/SearchPersonPage";
 import {PersonsFromDbPage} from "./pages/PersonsFromDbPage";
+import {CarsFromDbPage} from "./pages/CarsFromDbPage";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                     <Tab>input</Tab>
                     <Tab>search</Tab>
                     <Tab>Persons@Db</Tab>
+                    <Tab>Cars@Db</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -62,6 +64,9 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                     <PersonsFromDbPage/>
+                </TabPanel>
+                <TabPanel>
+                    <CarsFromDbPage/>
                 </TabPanel>
             </Tabs>
         </div>

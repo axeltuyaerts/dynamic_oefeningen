@@ -33,6 +33,9 @@ function CarColor(props) {
 
 export function Cars(props) {
     const {cars, title,isInitiallyOpen} = props;
+    if (!cars){
+        return "geen data";
+    }
     return (
         <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {cars.map((car) =>
@@ -57,7 +60,8 @@ Cars.propTypes = {
             brand: PropTypes.string,
             type: PropTypes.string,
             color: PropTypes.string
-        }).isRequired
+        })
     ),
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    isInitiallyOpen: PropTypes.bool
 };
