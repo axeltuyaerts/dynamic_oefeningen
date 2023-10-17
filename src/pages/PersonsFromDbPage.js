@@ -1,4 +1,4 @@
-import {collection} from 'firebase/firestore';
+import {collection,query, orderBy} from 'firebase/firestore';
 import {firestoreDB} from "../services/firebase";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {Persons} from "../components/Persons";
@@ -15,10 +15,11 @@ const personConverter = {
 
 export function PersonsFromDbPage() {
     const collectionRef = collection(firestoreDB, 'persons').withConverter(personConverter);
-    const [values, loading, error] = useCollectionData(collectionRef);
+    const queryRef = query(collectionRef, orderBy("name"));
+    const [values, loading, error] = useCollectionData(queryRef);
     const [search, setSearch] = useState("");
 
-    console.log({values,loading,error});
+    console.log({values, loading, error});
     return (
         <>
             <Form>
