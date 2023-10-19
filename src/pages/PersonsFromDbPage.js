@@ -37,12 +37,12 @@ export function PersonsFromDbPage() {
         addDoc(collectionRef, newPerson);
     }
 
-    function incrementAllAges() {
+    function incrementAllAges(amount) {
         if (values) {
             values.forEach((person) => {
                 const personRef = doc(firestoreDB, 'persons', person.id);
                 const updatedFields = {
-                    age: person.age + 1
+                    age: person.age + amount
                 };
                 updateDoc(personRef, updatedFields);
             });
@@ -57,7 +57,8 @@ export function PersonsFromDbPage() {
                               onChange={e => setSearch(e.target.value)}/>
             </Form>
             <MyButton onClick={() => addDummyPerson()}>+dummy</MyButton>
-            <MyButton onClick={() => incrementAllAges()}>age+1</MyButton>
+            <MyButton onClick={() => incrementAllAges(1)}>age+1</MyButton>
+            <MyButton onClick={() => incrementAllAges(-1)}>age-1</MyButton>
             <Persons persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
                      title={"personen uit de db"} isInitiallyOpen={true}/>
         </>
