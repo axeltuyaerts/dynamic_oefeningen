@@ -1,4 +1,4 @@
-import {collection, query, where} from 'firebase/firestore';
+import {collection, orderBy, query} from 'firebase/firestore';
 import {firestoreDB} from "../services/firebase";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {MenuCard} from "../components/MenuCard";
@@ -13,7 +13,7 @@ const productConverter = {
 
 export function MenuFromDbPage() {
     const collectionRef = collection(firestoreDB, 'menuproducts').withConverter(productConverter);
-    const queryRef = query(collectionRef, where("price", "==", 1), where("name", ">", "c"));
+    const queryRef = query(collectionRef, orderBy("sequence"));
     const [values, loading, error] = useCollectionData(queryRef);
     console.log({error});
     return (
