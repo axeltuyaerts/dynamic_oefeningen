@@ -10,7 +10,6 @@ const productConverter = {
         return {...data, id: snapshot.id}
     }
 };
-
 export function MenuFromDbPage() {
     const collectionRef = collection(firestoreDB, 'menuproducts').withConverter(productConverter);
     const queryRef = query(collectionRef, orderBy("sequence"));
