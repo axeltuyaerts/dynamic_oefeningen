@@ -28,13 +28,18 @@ export function PersonsFromDbPage() {
     const [search, setSearch] = useState("");
     console.log({values, loading, error});
 
-    function addDummyPerson() {
+    async function addDummyPerson() {
         const newPerson = {
             name: "DUMMY",
             age: 19,
             city: "Mechelen"
         };
-        addDoc(collectionRef, newPerson);
+        try{
+        await addDoc(collectionRef, newPerson);
+        console.log("Persoon succesvol toegevoegd.");
+        } catch (error) {
+            console.error("Fout bij toevoegen van persoon!", error);
+        }
     }
 
     function incrementAllAges(amount) {
