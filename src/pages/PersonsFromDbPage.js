@@ -34,12 +34,8 @@ export function PersonsFromDbPage() {
             age: 19,
             city: "Mechelen"
         };
-        try{
         await addDoc(collectionRef, newPerson);
         console.log("Persoon succesvol toegevoegd.");
-        } catch (error) {
-            console.error("Fout bij toevoegen van persoon!", error);
-        }
     }
 
     function incrementAllAges(amount) {
