@@ -1,4 +1,4 @@
-import {collection, query, orderBy, addDoc, updateDoc, doc} from 'firebase/firestore';
+import {collection, query, orderBy, addDoc, updateDoc} from 'firebase/firestore';
 import {firestoreDB} from "../services/firebase";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {Persons} from "../components/Persons";
@@ -38,30 +38,25 @@ export function PersonsFromDbPage() {
         console.log("Persoon succesvol toegevoegd.");
     }
 
-    function incrementAllAges(amount) {
-        if (values) {
-            values.forEach((person) => {
-                const personRef = doc(firestoreDB, 'persons', person.id);
-                const updatedFields = {
-                    age: person.age + amount
-                };
-                updateDoc(personRef, updatedFields);
-            });
-        }
+    async function incrementAllAges(amount) {
+        const arrayOfPromises = values.map(person => updateDoc(person.ref, {age: person.age + amount}));
+        Promise.all(arrayOfPromises);
+        console.log(`Alle leeftijde verhoogd met ${amount} is gelukt`);
     }
 
-    return (
-        <>
-            <Form>
-                <Form.Label>search</Form.Label>
-                <Form.Control value={search}
-                              onChange={e => setSearch(e.target.value)}/>
-            </Form>
-            <MyButton onClick={() => addDummyPerson()}>+dummy</MyButton>
-            <MyButton onClick={() => incrementAllAges(1)}>age+1</MyButton>
-            <MyButton onClick={() => incrementAllAges(-1)}>age-1</MyButton>
-            <Persons persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
-                     title={"personen uit de db"} isInitiallyOpen={true}/>
-        </>
-    )
+
+return (
+    <>
+        <Form>
+            <Form.Label>search</Form.Label>
+            <Form.Control value={search}
+                          onChange={e => setSearch(e.target.value)}/>
+        </Form>
+        <MyButton onClick={() => addDummyPerson()}>+dummy</MyButton>
+        <MyButton onClick={() => incrementAllAges(1)}>age+1</MyButton>
+        <MyButton onClick={() => incrementAllAges(-1)}>age-1</MyButton>
+        <Persons persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
+                 title={"personen uit de db"} isInitiallyOpen={true}/>
+    </>
+)
 }
