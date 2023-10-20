@@ -3,7 +3,7 @@ import {firestoreDB} from "../services/firebase";
 import {useCollectionData} from "react-firebase-hooks/firestore";
 import {Persons} from "../components/Persons";
 import React, {useState} from "react";
-import {Form} from "react-bootstrap";
+import {Form, Modal} from "react-bootstrap";
 import {MyButton} from "../components/MyButton";
 
 const personConverter = {
@@ -21,11 +21,23 @@ const personConverter = {
 };
 
 
+function PersonFromEdit({show, onHide}) {
+    return(
+        <Modal show={show} onHide={onHide}>
+            <Modal.Header closeButton>
+                <Modal.Title>Bewerk persoon</Modal.Title>
+            </Modal.Header>
+        </Modal>
+    )
+}
+
 export function PersonsFromDbPage() {
     const collectionRef = collection(firestoreDB, 'persons').withConverter(personConverter);
     const queryRef = query(collectionRef, orderBy("name"));
     const [values, loading, error] = useCollectionData(queryRef);
     const [search, setSearch] = useState("");
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [personSelected, setPersonSelected] = useState(null);
     console.log({values, loading, error});
 
     async function addDummyPerson() {
@@ -52,9 +64,18 @@ export function PersonsFromDbPage() {
         try {
             await deleteDoc(person.ref);
             console.log(`Persoon met ID ${person.id} is succesvol verwijderd`);
-        } catch  {
+        } catch {
             console.log('Fout bij het verwijderen van de persoon');
         }
+    }
+
+    function editPerson(person) {
+        setPersonSelected(person)
+    }
+
+    const closeEditModal = () => {
+        setPersonSelected(null);
+        setShowEditModal(false);
     }
 
 
@@ -68,8 +89,19 @@ export function PersonsFromDbPage() {
             <MyButton onClick={() => addDummyPerson()}>+dummy</MyButton>
             <MyButton onClick={() => incrementAllAges(1)}>age+1</MyButton>
             <MyButton onClick={() => incrementAllAges(-1)}>age-1</MyButton>
-            <Persons persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
-                     title={"personen uit de db"} isInitiallyOpen={true} onDeletePerson={deletePerson}/>
+            {personSelected && (
+                <div className={"bg-warning"}>
+                    <p>EDITING PERSON: {personSelected.name}</p>
+                </div>
+            )}
+            <Persons
+                persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
+                title={"personen uit de db"}
+                isInitiallyOpen={true}
+                onDeletePerson={deletePerson}
+                onEditPerson={editPerson}
+            />
+            <PersonFromEdit show={showEditModal} onHide={closeEditModal} />
         </>
-    )
+    );
 }
