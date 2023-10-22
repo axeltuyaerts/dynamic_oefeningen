@@ -21,12 +21,32 @@ const personConverter = {
 };
 
 
-function PersonFromEdit({show, onHide}) {
-    return(
+function PersonFromEdit({show, onHide, person, onSavePerson, onCancel}) {
+
+    async function onSaveClick() {
+        try {
+            await updateDoc(person.ref, {name: "DUMMY"});
+            console.log("Naam succesvol bewerkt");
+            onSavePerson(person);
+            onHide();
+        } catch {
+            console.log("Fout bij het bijwerken van de naam");
+        }
+    }
+
+    function onCancelClick() {
+        onCancel(onHide);
+    }
+
+    return (
         <Modal show={show} onHide={onHide}>
             <Modal.Header closeButton>
-                <Modal.Title>Bewerk persoon</Modal.Title>
+                <Modal.Title className={"bg-warning"}>EDITING PERSON: {person ? person.name : ''}</Modal.Title>
             </Modal.Header>
+            <Modal.Footer className={"d-flex justify-content-center"}>
+                <MyButton onClick={onCancelClick}>cancel</MyButton>
+                <MyButton onClick={onSaveClick}>save</MyButton>
+            </Modal.Footer>
         </Modal>
     )
 }
@@ -71,6 +91,7 @@ export function PersonsFromDbPage() {
 
     function editPerson(person) {
         setPersonSelected(person)
+        setShowEditModal(true)
     }
 
     const closeEditModal = () => {
@@ -78,6 +99,10 @@ export function PersonsFromDbPage() {
         setShowEditModal(false);
     }
 
+    function editPersonSave() {
+        console.log("save gelukt");
+        setShowEditModal(false);
+    }
 
     return (
         <>
@@ -89,11 +114,6 @@ export function PersonsFromDbPage() {
             <MyButton onClick={() => addDummyPerson()}>+dummy</MyButton>
             <MyButton onClick={() => incrementAllAges(1)}>age+1</MyButton>
             <MyButton onClick={() => incrementAllAges(-1)}>age-1</MyButton>
-            {personSelected && (
-                <div className={"bg-warning"}>
-                    <p>EDITING PERSON: {personSelected.name}</p>
-                </div>
-            )}
             <Persons
                 persons={values?.filter((p => p.name.includes(search) || p.city.includes(search)))}
                 title={"personen uit de db"}
@@ -101,7 +121,8 @@ export function PersonsFromDbPage() {
                 onDeletePerson={deletePerson}
                 onEditPerson={editPerson}
             />
-            <PersonFromEdit show={showEditModal} onHide={closeEditModal} />
+            <PersonFromEdit show={showEditModal} onHide={closeEditModal} person={personSelected}
+                            onSavePerson={editPersonSave} onCancel={closeEditModal}/>
         </>
     );
 }
