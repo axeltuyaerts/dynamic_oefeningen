@@ -21,18 +21,10 @@ const personConverter = {
 };
 
 
-function PersonFromEdit({show, onHide, person, onSavePerson, onCancel}) {
+function PersonFromEdit(props) {
+    const {show, onHide, person, onSavePerson, onCancel} = props;
 
-    async function onSaveClick() {
-        try {
-            await updateDoc(person.ref, {name: "DUMMY"});
-            console.log("Naam succesvol bewerkt");
-            onSavePerson(person);
-            onHide();
-        } catch {
-            console.log("Fout bij het bijwerken van de naam");
-        }
-    }
+    const [personToEdit, setPersonToEdit] = useState(person);
 
     function onCancelClick() {
         onCancel(onHide);
@@ -43,9 +35,31 @@ function PersonFromEdit({show, onHide, person, onSavePerson, onCancel}) {
             <Modal.Header closeButton>
                 <Modal.Title className={"bg-warning"}>EDITING PERSON: {person ? person.name : ''}</Modal.Title>
             </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Name:</Form.Label>
+                        <Form.Control type="text" value={personToEdit ? personToEdit.name : ''} onChange={(e) => {
+                            setPersonToEdit({...personToEdit, name: e.target.value})
+                        }}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Age:</Form.Label>
+                        <Form.Control type="text" value={personToEdit ? personToEdit.age : ''} onChange={(e) => {
+                            setPersonToEdit({...personToEdit, age: e.target.value})
+                        }}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>City:</Form.Label>
+                        <Form.Control type="text" value={personToEdit ? personToEdit.city : ''} onChange={(e) =>{
+                            setPersonToEdit({...personToEdit, city: e.target.value})
+                        }}/>
+                    </Form.Group>
+                </Form>
+            </Modal.Body>
             <Modal.Footer className={"d-flex justify-content-center"}>
                 <MyButton onClick={onCancelClick}>cancel</MyButton>
-                <MyButton onClick={onSaveClick}>save</MyButton>
+                <MyButton onClick={() => onSavePerson(personToEdit)}>save</MyButton>
             </Modal.Footer>
         </Modal>
     )
@@ -99,7 +113,12 @@ export function PersonsFromDbPage() {
         setShowEditModal(false);
     }
 
-    function editPersonSave() {
+    async function editPersonSave(person) {
+        try {
+            await updateDoc(person.ref, person);
+            console.log("Naam succesvol bewerkt");
+        } catch {
+        }
         console.log("save gelukt");
         setShowEditModal(false);
     }
@@ -121,8 +140,8 @@ export function PersonsFromDbPage() {
                 onDeletePerson={deletePerson}
                 onEditPerson={editPerson}
             />
-            <PersonFromEdit show={showEditModal} onHide={closeEditModal} person={personSelected}
-                            onSavePerson={editPersonSave} onCancel={closeEditModal}/>
+            {personSelected && <PersonFromEdit show={showEditModal} onHide={closeEditModal} person={personSelected}
+                                               onSavePerson={(e) => editPersonSave(e)} onCancel={closeEditModal}/>}
         </>
     );
 }
