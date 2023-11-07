@@ -27,8 +27,8 @@ function SectionContent(props) {
 }
 
 export function Section(props) {
-    const {title, children} = props;
-    const [isOpen, setIsOpen] = useState(false);
+    const {title, children, isInitiallyOpen} = props;
+    const [isOpen, setIsOpen] = useState(isInitiallyOpen);
     return (
         <div className={"mt-3 rounded shadow-sm"} style={{backgroundColor: "lavender"}}>
             <h2 className="text-center">{title} <OpenCloseButton isOpen={isOpen} onChangeIsOpen={() => setIsOpen(!isOpen)}/></h2>

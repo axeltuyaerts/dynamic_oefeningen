@@ -23,9 +23,9 @@ City.propTypes = {
 }
 
 export function Cities(props) {
-    const {cities, title} = props;
+    const {cities, title, isInitiallyOpen} = props;
     return (
-        <Section title={title}>
+        <Section title={title} isInitiallyOpen={isInitiallyOpen}>
             {cities.map(c => <City key={c.name} city={c}/>)}
         </Section>
     );

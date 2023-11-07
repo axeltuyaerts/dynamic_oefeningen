@@ -1,9 +1,10 @@
 import {Section} from "./Section";
 import {Button} from "react-bootstrap";
 
-export function EventDemo() {
+export function EventDemo(props) {
+    const {isInitiallyOpen} = props;
     return (
-        <Section title={"events"}>
+        <Section title={"events"} isInitiallyOpen={isInitiallyOpen}>
             <button className={"m-3"} onClick={() => {
                 alert("Button is clicked")
             }}>click me please!
@@ -17,7 +18,10 @@ export function EventDemo() {
                     e.preventDefault();
                     e.stopPropagation();
                     alert("link is clicked ")
-                }}>dit is een link met een href</a> - en - <Button onClick={(e) => {e.stopPropagation(); alert("button is clicked")}}>dit is een button</Button>
+                }}>dit is een link met een href</a> - en - <Button onClick={(e) => {
+                e.stopPropagation();
+                alert("button is clicked")
+            }}>dit is een button</Button>
             </div>
         </Section>
 
