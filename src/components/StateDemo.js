@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Section} from "./Section";
 import {MyButton} from "./MyButton";
 import {Counter} from "./Counter";
+import {OnOffDemo} from "./OnOffDemo";
 
 export function StateDemo() {
     const [demoValue, setDemoValue] = useState(0);
@@ -14,5 +15,6 @@ export function StateDemo() {
         <MyButton onClick={() => setDemoValue(184)}> SET 184</MyButton>
         <Counter name={"counter1"}/>
         <Counter name={"counter2"}/>
+        <OnOffDemo/>
     </Section>
 }
