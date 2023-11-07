@@ -4,7 +4,7 @@ import {MyButton} from "./MyButton";
 export function OnOffDemo(){
     const [isOn, setIsOn] = useState(false)
     return(
-        <div>
+        <div className="my-3 py-2 border border-secondary">
             <div>de huidige waarde van isOn is: {isOn ? "ON" : "OFF"}</div>
             <MyButton onClick={() => setIsOn(false)}>off</MyButton>
             <MyButton onClick={() => setIsOn(true)}>on</MyButton>
