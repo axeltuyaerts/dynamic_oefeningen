@@ -8,7 +8,7 @@ export function EventDemo() {
                 alert("Button is clicked")
             }}>click me please!
             </button>
-            <Button className={"m-3"} onClick={() => alert("Bootstrap is clicked")}>click me please!</Button>
+            <Button className={"m-3"} onClick={e => alert(`bootstrap is clicked - pos : ${e.clientX}, ${e.clientY}`)}>click me please!</Button>
         </Section>
 
     );
