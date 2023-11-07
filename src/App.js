@@ -3,12 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Tabs, TabList, TabPanel} from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import './App.css';
-import {PERSON_DATA,CAR_DATA,NUMBER_DATA, PRODUCTS_DATA} from "./data/data";
+import {PERSON_DATA, CAR_DATA, NUMBER_DATA, PRODUCTS_DATA} from "./data/data";
 import {MenuCardPage} from "./pages/MenuCardPage";
 import {PicturesPage} from "./pages/PicturesPage";
 import {NumbersPage} from "./pages/NumbersPage";
 import {CarPage} from "./pages/CarPage";
 import {PersonsPage} from "./pages/PersonsPage";
+import {EventAndStatePage} from "./pages/EventAndStatePage";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                     <Tab>numbers</Tab>
                     <Tab>cars</Tab>
                     <Tab>persons</Tab>
+                    <Tab>event&state</Tab>
                 </TabList>
 
                 <TabPanel>
@@ -37,6 +39,9 @@ function App() {
                 </TabPanel>
                 <TabPanel>
                     <PersonsPage persons={PERSON_DATA}/>
+                </TabPanel>
+                <TabPanel>
+                    <EventAndStatePage/>
                 </TabPanel>
             </Tabs>
 
