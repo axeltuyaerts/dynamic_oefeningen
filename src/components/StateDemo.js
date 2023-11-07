@@ -7,6 +7,7 @@ export function StateDemo() {
 
     return <Section title={"state"}>
         <div>de waarde van de demoValue is {demoValue}</div>
+        <div>de waarde van de demoValue is {demoValue}</div>
         <MyButton onClick={() => setDemoValue(0)}> SET 0</MyButton>
         <MyButton onClick={() => setDemoValue(77)}> SET 77</MyButton>
         <MyButton onClick={() => setDemoValue(184)}> SET 184</MyButton>
