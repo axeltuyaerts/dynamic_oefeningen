@@ -13,5 +13,6 @@ export function StateDemo() {
         <MyButton onClick={() => setDemoValue(77)}> SET 77</MyButton>
         <MyButton onClick={() => setDemoValue(184)}> SET 184</MyButton>
         <Counter name={"counter1"}/>
+        <Counter name={"counter2"}/>
     </Section>
 }
